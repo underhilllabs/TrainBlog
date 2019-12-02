@@ -1,0 +1,9 @@
+.container
+  .footer-container
+    .footer-item
+      Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    - if user_signed_in?
+      .footer-item= link_to "My Account", "/player/#{current_user.id}"
+      .footer-item= link_to "Logout", destroy_user_session_path, method: :delete
+    - else 
+      .footer-item= link_to "Sign in", new_user_session_path

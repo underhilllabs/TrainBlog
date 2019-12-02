@@ -1,0 +1,31 @@
+= form_for @player_profile do |f|
+  - if @player_profile.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player_profile.errors.count, "error")} prohibited this player_profile from being saved:"
+      %ul
+        - @player_profile.errors.full_messages.each do |message|
+          %li= message
+
+  .field.form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .field.form-group
+    = f.label :geekname, "What's your geek name?"
+    = f.text_field :geekname, class: "form-control"
+  .field.form-group
+    .row
+      .col-md-1
+        = f.label :avatar
+      - if @player_profile.avatar.attached?
+        .col-md-1
+          = image_tag @player_profile.avatar 
+      .col-md-6
+
+        = f.file_field :avatar
+  .field.form-group
+    = f.label :about_me
+    = f.rich_text_area :about_me, options: {rows: 10}
+  = f.hidden_field :user_id, value: "#{current_user.try(:id)}"
+
+  .actions
+    = f.submit 'Save'

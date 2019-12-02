@@ -1,0 +1,24 @@
+!!DOCTYPE html>
+%html
+%head
+title: 18Den Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+  <%= render '/shared/header' %>
+   
+  <div class="main-container">
+    <div class="main-content" role=main>
+      <%= yield %>
+    </div>
+    <div class="sidebar-right">
+      <%= render '/shared/sidebar' %>
+    </div>
+  </div>
+  </body>
+</html>

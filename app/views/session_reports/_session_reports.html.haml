@@ -1,0 +1,10 @@
+%table.table-striped.table
+  %tr
+    %th title
+    %th reporter
+    %th game
+    %th date
+
+  %tbody
+    - @session_reports.each do |session_report|
+      = render session_report

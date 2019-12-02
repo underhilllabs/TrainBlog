@@ -1,0 +1,16 @@
+%h1= "#{@player_profile.name}'s Profile"
+
+%p
+  - if @player_profile.avatar.attached?
+    %p.avatar
+      = image_tag @player_profile.avatar, width: 80
+  - else
+    %p you should get yourself an avatar!
+
+
+%h4 About Me
+.about-me
+  = @player_profile.about_me
+  
+- if current_user == @player_profile.user
+  = link_to "edit profile", edit_player_profile_path(@player_profile)

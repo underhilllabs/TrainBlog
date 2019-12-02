@@ -1,0 +1,16 @@
+%li
+  = comment.body
+  %br
+  - if comment.user_id.present?
+    %small= "- Submitted by #{comment.user.username} #{time_ago_in_words(comment.created_at)} ago"
+  -else
+    %small= "- Submitted #{time_ago_in_words(comment.created_at)} ago"
+   
+  = form_for [comment, Comment.new], remote: true do |f|
+    = f.text_area :body, placeholder: "Add a Reply"
+    = f.hidden_field :user_id, value: "#{current_user.try(:id)}"
+    %br
+    = f.submit "Reply"
+    
+%ul
+  = render partial: 'comments/comment', collection: comment.comments

@@ -1,0 +1,33 @@
+= form_for @session_report do |f|
+  - if @session_report.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@session_report.errors.count, "error")} prohibited this session_report from being saved:"
+      %ul
+        - @session_report.errors.full_messages.each do |message|
+          %li= message
+
+  .field.form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .field.form-group
+    = f.label :game, "What's the Game?"
+    = f.text_field :game, class: "form-control"
+  .field.form-group
+    = f.label :game_date
+    = f.text_field :game_date, class: "form-control", data:{ provide:'datepicker' }
+  .field.form-group
+    = f.label :player_manifest
+    %p format: Bigwig|Grand Trunk|Steamboat, Mail Contract
+    = f.text_area :player_manifest, class: "form-control", rows: 5
+  .field.form-group
+    = f.label :content
+    = f.rich_text_area :content, options: {rows: 10}
+  .field.form-group
+    = f.label :final_stat, "Final Statistics"
+    %p format: RailroadA|President|Trains|revenue|share price
+    %p eg: NYC|Seamus|7/8, Diesel|55|212
+    = f.text_area :final_stat, class: "form-control", rows: 8 
+  = f.hidden_field :creator_id, value: "#{current_user.try(:id)}"
+
+  .actions
+    = f.submit 'Save'

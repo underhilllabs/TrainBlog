@@ -1,0 +1,14 @@
+@media only screen and (max-device-width: 1000px) {
+  table.table-striped {
+  }
+  .hero {
+    img {
+      min-width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .main-wrapper {
+    padding: 0.5em !important;
+  }
+}

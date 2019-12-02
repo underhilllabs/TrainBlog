@@ -1,0 +1,26 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+  .field.form-group
+    = f.label :title
+    = f.text_field :title
+  .field.form-group
+    = f.label :banner, "Banner Image"
+    = f.file_field :banner
+  .field.form-group
+    = f.label :url
+    = f.text_field :url
+  .field.form-group
+    = f.label :category
+    = f.text_field :category
+  .field.form-group
+    = f.label :content
+    = f.rich_text_area :content
+  = f.hidden_field :user_id, value: "#{current_user.try(:id)}"
+  .actions
+    = f.submit 'Save'

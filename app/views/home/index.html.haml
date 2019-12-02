@@ -1,0 +1,9 @@
+.container
+  .hero
+    = image_tag Image.find(1).image_file, size: "750x200"
+
+
+  .main-wrapper
+    %h4 Latest Sessions
+    
+    = render 'session_reports/session_reports'

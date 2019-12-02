@@ -1,0 +1,38 @@
+a:hover {
+  color: orange;
+  text-decoration: underline;
+}
+a {
+  text-decoration: none;
+}
+
+
+table.table-striped {
+  
+  td {
+    padding: 0.5em;
+  }
+  tr:hover {
+    background: goldenrod !important;
+  }
+  th {
+    padding: 0.5em;
+    background-color: #696969;
+    color: #fff;
+    
+  }
+  tr:nth-child(even) {
+    background-color: #eee;
+  }
+}
+p.avatar {
+  img {
+    border-radius: 50%;
+  }
+}
+.about-me {
+  max-width: 1000px;
+  margin-bottom: 1.2em;
+  border: 0.5px dashed #eee;
+  padding: 0.5em;
+}

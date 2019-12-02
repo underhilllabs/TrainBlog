@@ -1,0 +1,104 @@
+// Header ----------------->
+.navbar-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-item {
+  padding: 5px;
+  width: 260px;
+  height: 100px;
+  margin-top: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+}
+.navbar-item-center {
+  flex-grow: 1;
+  padding: 5px;
+  width: 200px;
+  height: 70px;
+  margin-top: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: left;
+}
+.navbar-item-right {
+  align-self: flex-end;
+  flex-shrink: 2;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+}
+.header {
+  background: #efefef;
+  border-bottom: 3px #86b992 solid;
+}
+.navbar-static-top {
+  background: #e3e3e3;
+}
+.header-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  font-size: 1.5em;
+}
+// Main ------------------->
+// contains main-content and sidebar
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-grow: 3;
+  flex-flow: row wrap;
+  
+  .main-content {
+    border-right: solid 1px #efefef;
+  }
+  // wraps content, not the hero image
+  .main-wrapper {
+    padding: 2em;
+  }
+
+}
+
+// Sidebar --------------->
+.sidebar-right {
+  width: 20em;
+}
+.sidebar {
+  // border-left: solid 1px #efefef;
+  background: white;
+  padding: 1em;
+}
+// Footer ---------------->
+.footer-container {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer-item {
+  width: 250px;
+}
+.footer {
+  //margin-top: 2em;
+  padding: 2em;
+  background: #efefef;
+}

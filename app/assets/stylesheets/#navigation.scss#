@@ -1,3 +1,0 @@
-html body a:hover {
-  background: inherit;
-}

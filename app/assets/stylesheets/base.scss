@@ -1,5 +1,5 @@
 a:hover {
-  color: orange;
+  color: #990044;
   text-decoration: underline;
 }
 a {
@@ -13,7 +13,7 @@ table.table-striped {
     padding: 0.5em;
   }
   tr:hover {
-    background: goldenrod !important;
+    background: #ccccef !important;
   }
   th {
     padding: 0.5em;
@@ -35,4 +35,24 @@ p.avatar {
   margin-bottom: 1.2em;
   border: 0.5px dashed #eee;
   padding: 0.5em;
+}
+input[type=text] {
+  width: 60%;
+  font-size: 1em;
+  padding: 3px;
+}
+textarea {
+  width: 60%;
+  font-size: 1.2em;
+  padding: 4px;
+}
+.comments {
+  background: #ededed;
+  padding: 1em;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
 }

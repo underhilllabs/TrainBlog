@@ -1,3 +1,10 @@
+// App Wrapper ------------>
+.app-wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+}
 // Header ----------------->
 .navbar-container {
   padding: 0;

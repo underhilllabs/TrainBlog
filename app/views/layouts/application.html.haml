@@ -7,16 +7,18 @@
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{rel:"icon", type:"image/png", href:"train_ico.png"}
   %body
-  .header
-    .header-wrapper
-      = render '/shared/header'
+  .app-wrapper
+    .header
+      .header-wrapper
+        = render '/shared/header'
 
-  .main-container
-    .main-content
-      = yield
-    .sidebar-right
-      = render '/shared/sidebar'
+    .main-container
+      .main-content
+        = yield
+      .sidebar-right
+        = render '/shared/sidebar'
 
-  .footer
-    = render '/shared/footer'
+    .footer
+      = render '/shared/footer'

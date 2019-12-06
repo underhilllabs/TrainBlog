@@ -1,14 +1,15 @@
-%h2 Players
-%table.table.table-striped
-  %tr
-    %th Player
-    %th Starting Railroad
-    %th Privates
-  %tbody
-    - @player_manifest.each do |fs|
-      - row = fs.split("|")
-      %tr
-        %td= row[0]  
-        %td= row[1]  
-        %td= row[2]  
-  
+-if @player_manifest.present?
+  %h2 Players
+  %table.table.table-striped
+    %tr
+      %th Player
+      %th Starting Railroad
+      %th Privates
+    %tbody
+      - @player_manifest.each do |fs|
+        - row = fs.split("|")
+        %tr
+          %td= row[0]  
+          %td= row[1]  
+          %td= row[2]  
+

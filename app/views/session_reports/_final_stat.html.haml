@@ -1,18 +1,19 @@
-%h2 Final Railroad Statistics
-%table.table.table-striped
-  %tr
-    %th Railroad
-    %th President
-    %th Trains
-    %th Revenue
-    %th Share Price
-  %tbody
-    - @final_stat.each do |fs|
-      - row = fs.split("|")
-      %tr
-        %td= row[0]  
-        %td= row[1]  
-        %td= row[2]  
-        %td= row[3]  
-        %td= row[4]  
-  
+- if @final_stat.present?
+  %h2 Final Railroad Statistics
+  %table.table.table-striped
+    %tr
+      %th Railroad
+      %th President
+      %th Trains
+      %th Revenue
+      %th Share Price
+    %tbody
+      - @final_stat.each do |fs|
+        - row = fs.split("|")
+        %tr
+          %td= row[0]  
+          %td= row[1]  
+          %td= row[2]  
+          %td= row[3]  
+          %td= row[4]  
+

@@ -18,31 +18,31 @@
     %b Game Date:
     = nice_date_form @session_report.game_date
 
-  - if @player_manifest.present?
-    %p 
-      = render 'player_manifest'
+  %p 
+    = render 'player_manifest'
 
 
-    %p
-      = @session_report.content
+  %p
+    = @session_report.content
 
-  - if @final_stat.present?
-    %p 
-      = render 'final_stat', locals: {final_stats: @session_report.final_stat}
+  %p 
+    = render 'final_stat'
 
-  %h3 Comments
-
+  %br
   = form_for [@session_report, Comment.new] do |f|
     = f.text_area :body, placeholder: "Add a comment"
     = f.hidden_field :user_id, value: current_user.try(:id)
     %br
-    = f.submit "Add Comment" 
+    = f.submit "Add Comment"
+    
+  .comments
+    %h3 Comments
 
-  %ul
-    = render(partial: 'comments/comment', collection: @session_report.comments)
+    %ul
+      = render(partial: 'comments/comment', collection: @session_report.comments)
   
-    %p
-      = link_to 'Edit', edit_session_report_path(@session_report)
+  %p
+    = link_to 'Edit', edit_session_report_path(@session_report)
+    \|
+    = link_to 'Back', session_reports_path
 
-      \|
-      = link_to 'Back', session_reports_path

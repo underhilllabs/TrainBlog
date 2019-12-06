@@ -17,16 +17,21 @@
     = f.text_field :game_date, class: "form-control", data:{ provide:'datepicker' }
   .field.form-group
     = f.label :player_manifest
-    %p format: Bigwig|Grand Trunk|Steamboat, Mail Contract
     = f.text_area :player_manifest, class: "form-control", rows: 5
+    %br
+    %small format: Bigwig|Grand Trunk|Steamboat, Mail Contract
+
   .field.form-group
     = f.label :content
     = f.rich_text_area :content, options: {rows: 10}
   .field.form-group
     = f.label :final_stat, "Final Statistics"
-    %p format: RailroadA|President|Trains|revenue|share price
-    %p eg: NYC|Seamus|7/8, Diesel|55|212
-    = f.text_area :final_stat, class: "form-control", rows: 8 
+    = f.text_area :final_stat, class: "form-control", rows: 8
+    %br
+    %small format: RailroadA|President|Trains|revenue|share price
+    %br
+    %small eg: NYC|Seamus|7/8, Diesel|55|212
+
   = f.hidden_field :creator_id, value: "#{current_user.try(:id)}"
 
   .actions

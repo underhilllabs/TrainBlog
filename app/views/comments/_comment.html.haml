@@ -4,6 +4,8 @@
     %br
     - if comment.user_id.present?
       %small= "- Submitted by #{comment.user.username} #{time_ago_in_words(comment.created_at)} ago"
+    -elsif comment.commenter
+      %small= "- Submitted by #{comment.commenter} #{time_ago_in_words(comment.created_at)} ago"
     -else
       %small= "- Submitted #{time_ago_in_words(comment.created_at)} ago"
 

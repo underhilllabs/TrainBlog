@@ -1,0 +1,9 @@
+.comment_form
+  %h3 Add a Comment
+
+  = form_for [@session_report, Comment.new], remote: true do |f|
+    = f.text_field :commenter, placeholder: "Name" unless user_signed_in?
+    = f.text_area :body, placeholder: "Add a comment"
+    = f.hidden_field :user_id, value: current_user.try(:id)
+    %br
+    = f.submit "Post Comment"

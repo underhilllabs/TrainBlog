@@ -1,0 +1,2 @@
+$(".comment_form").replaceWith("<H2>Comment Posted!");
+$("#comments").append("<div class='new-comment'><%= @comment.body %></br>Post by <%= @comment.try(:commenter)  %> </div>");

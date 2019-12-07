@@ -4,12 +4,6 @@
   %h2= @session_report.title
 
 
-  %p= "Session Report posted by #{@session_report.creator.try(:username)}" 
-
-  %p.avatar
-    - if @session_report.creator.player_profile.avatar.attached?
-      = image_tag @session_report.creator.player_profile.avatar
-
   %p
     %b Game:
     = @session_report.game
@@ -28,21 +22,25 @@
   %p 
     = render 'final_stat'
 
+  = link_to 'Edit', edit_session_report_path(@session_report) if user_signed_in?
+
+  .posted_by
+
+    %p.avatar
+      %span
+        - if @session_report.creator.player_profile.avatar.attached?
+          = image_tag @session_report.creator.player_profile.avatar
+      %span
+        = "posted by #{@session_report.creator.try(:username)}" 
+
   %br
-  = form_for [@session_report, Comment.new] do |f|
-    = f.text_area :body, placeholder: "Add a comment"
-    = f.hidden_field :user_id, value: current_user.try(:id)
-    %br
-    = f.submit "Add Comment"
-    
-  .comments
+  
+  = render 'comments/add_comment'
+  
+  #comments.comments
     %h3 Comments
 
     %ul
       = render(partial: 'comments/comment', collection: @session_report.comments)
   
-  %p
-    = link_to 'Edit', edit_session_report_path(@session_report)
-    \|
-    = link_to 'Back', session_reports_path
 

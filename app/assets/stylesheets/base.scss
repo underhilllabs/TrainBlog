@@ -28,6 +28,10 @@ table.table-striped {
 p.avatar {
   img {
     border-radius: 50%;
+    vertical-align: sub;
+  }
+  span {
+    padding: 1em;
   }
 }
 .about-me {
@@ -55,4 +59,9 @@ textarea {
       list-style: none;
     }
   }
+}
+.new-comment {
+  padding: 1em;
+  background: yellow;
+  color: #353535;
 }

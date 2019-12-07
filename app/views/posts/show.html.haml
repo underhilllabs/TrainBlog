@@ -3,7 +3,7 @@
 - if @post.banner.attached?
   .row
     .col-md-12
-      = image_tag @post.banner, size: "800x250"
+      = image_tag @post.banner.variant(resize_to_limit: [900, 350])
 .main-wrapper    
   %p
     %h2= @post.title
@@ -14,6 +14,6 @@
       = image_tag @post.user.player_profile.avatar
       .content= @post.content
   
-  = link_to 'Edit', edit_post_path(@post)
+  = link_to 'Edit', edit_post_path(@post) if user_signed_in?
   \|
   = link_to 'Back', posts_path

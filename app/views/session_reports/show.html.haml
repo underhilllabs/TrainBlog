@@ -22,6 +22,9 @@
   %p 
     = render 'final_stat'
 
+  %p
+    %hr
+
   = link_to 'Edit', edit_session_report_path(@session_report) if user_signed_in?
 
   .posted_by

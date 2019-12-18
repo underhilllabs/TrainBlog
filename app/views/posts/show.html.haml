@@ -12,7 +12,8 @@
     %small= "Posted by #{@post.user.player_profile.name}"
     %p.avatar
       = image_tag @post.user.player_profile.avatar
-      .content= @post.content
+      
+  .content= @post.content
   
   = link_to 'Edit', edit_post_path(@post) if user_signed_in?
   \|

@@ -60,8 +60,19 @@ textarea {
     }
   }
 }
+// ---------- FORM -------------------------
+form#new_page {
+  .field {
+    padding-bottom: 2em;
+  }
+}
 .new-comment {
   padding: 1em;
   background: yellow;
   color: #353535;
+}
+form.new_comment {
+  input, textarea {
+    margin-bottom: 1em;
+  }
 }

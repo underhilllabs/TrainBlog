@@ -15,9 +15,11 @@
   %p 
     = render 'player_manifest'
 
-
-  %p
-    = @session_report.content
+  -if @session_report.body.present?
+    markdown(@session_report.body)
+  -else 
+    %p
+      = @session_report.content
 
   %p 
     = render 'final_stat'

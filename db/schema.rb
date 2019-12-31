@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_233038) do
+ActiveRecord::Schema.define(version: 2019_12_23_154235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_233038) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bgg_link"
   end
 
   create_table "images", force: :cascade do |t|
@@ -93,11 +94,12 @@ ActiveRecord::Schema.define(version: 2019_12_13_233038) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "game_date"
-    t.text "game"
     t.integer "creator_id"
     t.text "final_stat"
     t.text "player_manifest"
     t.text "body"
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_session_reports_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -117,4 +119,5 @@ ActiveRecord::Schema.define(version: 2019_12_13_233038) do
   add_foreign_key "comments", "users"
   add_foreign_key "player_profiles", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "session_reports", "games"
 end

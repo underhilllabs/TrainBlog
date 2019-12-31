@@ -1,9 +1,23 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @game.title
+.main
 
-= link_to 'Edit', edit_game_path(@game)
-\|
-= link_to 'Back', games_path
+
+  %h2
+    = link_to @game.title, @game.bgg_link
+
+  %p.meta
+    = link_to 'Edit', edit_game_path(@game), :class => "edit" if user_signed_in?
+    
+  = image_tag @game.banner.variant(resize_to_limit: [600, 200]) if @game.banner.present?
+  %p
+    = link_to "View game entry on bgg", @game.bgg_link
+
+  %h3= "Session Reports for #{@game.title}"
+    
+  =render 'session_reports/brief_session_reports'
+    
+  .main-content
+    = @game.content
+
+  %p

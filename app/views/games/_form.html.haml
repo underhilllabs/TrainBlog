@@ -9,5 +9,14 @@
   .field
     = f.label :title
     = f.text_field :title
+  .field
+    = f.label :bgg_link
+    = f.text_field :bgg_link
+  .field
+    = f.label :banner
+    = f.file_field :banner
+  .field
+    = f.label :content
+    = f.rich_text_area :content, options: {rows: 10}
   .actions
     = f.submit 'Save'

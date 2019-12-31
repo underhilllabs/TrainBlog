@@ -1,7 +1,13 @@
-%h1 Editing Session Report
+.edit-page
 
-= render 'form'
+  %h1 Editing Session Report
 
-= link_to 'Show', @session_report
-\|
-= link_to 'Back', session_reports_path
+  .form
+    = render 'form'
+
+  = link_to 'Show', @session_report
+  \|
+  = link_to 'Back', session_reports_path
+  // Confirmation doesn't work without jQuery enabled.
+  //
+  //= link_to 'Delete Session Report', "/session_reports/#{@session_report.id}", method: :delete, confirm: 'Are you sure?'

@@ -11,7 +11,9 @@
     = f.text_field :title, class: "form-control"
   .field.form-group
     = f.label :game, "What's the Game?"
-    = f.text_field :game, class: "form-control"
+    //= f.text_field :game, class: "form-control"
+    //= f.select :game_id, Game.all
+    = f.select("game_id", Game.all.collect {|g| [ g.title, g.id ] }, { include_blank: true })
   .field.form-group
     = f.label :game_date
     = f.text_field :game_date, class: "form-control", id: "calendarField", data:{ provide:'datepicker' }

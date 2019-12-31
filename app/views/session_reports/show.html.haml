@@ -3,10 +3,12 @@
 
   %h2= @session_report.title
 
+  %p.meta 
+    = link_to 'Edit', edit_session_report_path(@session_report), :class => "edit" if user_signed_in?
 
   %p
     %b Game:
-    = @session_report.game
+    = link_to @session_report.game, @session_report.game
 
   %p
     %b Game Date:

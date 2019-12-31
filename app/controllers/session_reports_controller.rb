@@ -71,6 +71,6 @@ class SessionReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_report_params
-      params.require(:session_report).permit(:title, :content, :game_date, :game, :creator, :creator_id, :final_stat, :player_manifest)
+      params.require(:session_report).permit(:title, :content, :game_date, :game, :creator, :creator_id, :final_stat, :player_manifest, :game_id)
     end
 end

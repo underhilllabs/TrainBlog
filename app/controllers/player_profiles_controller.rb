@@ -48,6 +48,7 @@ class PlayerProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player_profile
       @player_profile = PlayerProfile.find(params[:id])
+      authorize @player_profile
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

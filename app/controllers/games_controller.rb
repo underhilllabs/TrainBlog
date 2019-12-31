@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  layout 'main_with_sidebar'
 
   # GET /games
   # GET /games.json
@@ -10,6 +11,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @session_reports = SessionReport.where(game: @game)  
   end
 
   # GET /games/new
@@ -69,6 +71,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:title)
+      params.require(:game).permit(:title, :bgg_link, :content, :banner)
     end
 end

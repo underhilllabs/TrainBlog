@@ -1,0 +1,13 @@
+%table.table-striped.table
+  %tr
+    %th title
+    %th date
+
+  %tbody
+    - @session_reports.each do |session_report|
+      %tr
+        %td
+          = link_to session_report.title, session_report_path(session_report)
+        %td
+          = nice_date_form(session_report.game_date)
+

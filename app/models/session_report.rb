@@ -4,7 +4,7 @@ class SessionReport < ApplicationRecord
   validates :game_date, presence: true
   belongs_to :creator, class_name: 'User'
   has_many :comments, as: :commentable
-  #belongs_to :game, optional: true
+  belongs_to :game, optional: true
 
   def final_stats
     if final_stat.present?

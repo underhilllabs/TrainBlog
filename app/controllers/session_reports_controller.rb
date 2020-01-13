@@ -5,7 +5,8 @@ class SessionReportsController < ApplicationController
   # GET /session_reports
   # GET /session_reports.json
   def index
-    @session_reports = SessionReport.all.order(created_at: :DESC)
+    #@session_reports = SessionReport.published.order(game_date: :DESC)
+    @session_reports = SessionReport.published
   end
 
   # GET /session_reports/1
@@ -27,7 +28,8 @@ class SessionReportsController < ApplicationController
   # POST /session_reports
   # POST /session_reports.json
   def create
-    @session_report = SessionReport.create session_report_params
+    @session_report = SessionReport.create! session_report_params
+    #@sesion_report.published = true
     respond_to do |format|
       if @session_report.save
         format.html { redirect_to @session_report, notice: 'Session report was successfully created.' }
@@ -56,9 +58,11 @@ class SessionReportsController < ApplicationController
   # DELETE /session_reports/1
   # DELETE /session_reports/1.json
   def destroy
-    @session_report.destroy
+    authorize @session_report
+    @session_report.published = false
+    @session_report.save
     respond_to do |format|
-      format.html { redirect_to session_reports_url, notice: 'Session report was successfully destroyed.' }
+      format.html { redirect_to session_reports_url, notice: 'Session report has been unpublished.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +75,6 @@ class SessionReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_report_params
-      params.require(:session_report).permit(:title, :content, :game_date, :game, :creator, :creator_id, :final_stat, :player_manifest, :game_id)
+      params.require(:session_report).permit(:title, :content, :game_date, :game, :creator, :creator_id, :final_stat, :player_manifest, :game_id, :final_standing)
     end
 end

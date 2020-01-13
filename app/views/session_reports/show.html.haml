@@ -26,12 +26,17 @@
   %p 
     = render 'final_stat'
 
+  %p 
+    = render 'final_standings'
+
+
   %p
     %hr
-
-  = link_to 'Edit', edit_session_report_path(@session_report) if user_signed_in?
-
-  .posted_by
+  .delete-controller{data: { controller: "delete"}}
+    %p.meta 
+      = link_to 'Edit Session Report', edit_session_report_path(@session_report), class: "edit" if user_signed_in?
+      = link_to 'Delete Session Report', session_report_path(@session_report), class: "delete-link", method: :delete, data: { target: "delete.link", action: "ajax:beforeSend->delete#click" } if user_signed_in?
+      .posted_by
 
     %p.avatar
       %span

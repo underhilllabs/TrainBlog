@@ -1,0 +1,17 @@
+- if @final_standing.present?
+  %h2 Final Standings
+  %table.table.table-striped
+    %tr
+      %th Player
+      %th Cash
+      %th Portfolio Value
+      %th Final Score
+    %tbody
+      - @final_standing.each do |fs|
+        - row = fs.split("|")
+        %tr
+          %td= row[0]  
+          %td= row[1]  
+          %td= row[2]  
+          %td= row[3]  
+

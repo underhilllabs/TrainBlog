@@ -41,7 +41,7 @@
     %p.avatar
       %span
         - if @session_report.creator.player_profile.avatar.attached?
-          = image_tag @session_report.creator.player_profile.avatar
+          = image_tag @session_report.creator.player_profile.avatar.variant(resize_to_limit: [100, 100]) 
       %span
         = "posted by #{@session_report.creator.try(:username)}" 
 

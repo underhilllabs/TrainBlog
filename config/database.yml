@@ -12,10 +12,10 @@ default: &default
 development:
   host: localhost
   adapter: postgresql
-  database: trains_dev
   encoding: unicode
-  username: <%= ENV['DEV_DB_USER'] || 'trains' %>
-  password: <%= ENV['DEV_DB_PASSWORD'] || 'not23skidoo' %>
+  database: <%= Rails.application.credentials.dig(:postgres, :database) %>
+  username: <%= Rails.application.credentials.dig(:postgres, :user) %>
+  password: <%= Rails.application.credentials.dig(:postgres, :password) %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

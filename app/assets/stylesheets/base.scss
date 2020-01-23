@@ -6,7 +6,45 @@ a {
   text-decoration: none;
 }
 
-
+a.edit {
+  background-color: #ff9900;
+  color: white;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border-radius: 5px;
+  &:visited {
+    color: white;
+  }
+  &:hover {
+    background-color: #ff9900;
+    color: white;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    border-radius: 5px;
+  }
+}
+a.delete-link {
+  background-color: #990000;
+  color: white;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border-radius: 5px;
+  &:visited {
+    color: white
+  }
+  &:hover {
+    background-color: #990000;
+    color: white;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    border-radius: 5px;
+  }
+}
+.edit-page {
+  padding-left: 1em;
+  .form {
+    padding-left: 1em;
+  }
+}
+.main {
+  padding-left: 2em;
+}
 table.table-striped {
   
   td {

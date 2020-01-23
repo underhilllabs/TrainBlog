@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_154235) do
+ActiveRecord::Schema.define(version: 2020_01_13_155253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 2019_12_23_154235) do
     t.text "player_manifest"
     t.text "body"
     t.bigint "game_id"
+    t.boolean "published"
+    t.text "final_standing"
     t.index ["game_id"], name: "index_session_reports_on_game_id"
   end
 
@@ -111,6 +113,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_154235) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

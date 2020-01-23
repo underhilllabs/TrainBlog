@@ -6,6 +6,15 @@ class SessionReport < ApplicationRecord
   has_many :comments, as: :commentable
   belongs_to :game, optional: true
 
+  scope :published, -> { where(published: true) }
+  
+  def final_standings
+    if final_standing.present?
+      final_standing.split("\n")
+    else
+      []
+    end
+  end
   def final_stats
     if final_stat.present?
       final_stat.split("\n")

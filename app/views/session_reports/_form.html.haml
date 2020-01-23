@@ -36,11 +36,11 @@
 
   .field.form-group
     = f.label :final_standing, "Final Standings"
-    = f.text_area :final_standing, class: "form-control", rows: 8
+    = f.text_area :final_standing, class: "form-control", rows: 6
     %br
-    %small format: Player|Final Cash|Final Portfolio Value|Final Score
+    %small format: Player|Final Cash|Final Revenue|Final Portfolio Value|Final Score
     %br
-    %small eg: Bigwig|15|9000|9015
+    %small eg: Bigwig|15|1000|9000|10,015
 
   = f.hidden_field :creator_id, value: "#{current_user.try(:id)}"
 

@@ -19,6 +19,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  # DELETE /posts/1
+  # DELETE /posts/1.json
+  def destroy
+    #authorize @comment
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Comment was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def comment_params
@@ -30,4 +42,4 @@ class CommentsController < ApplicationController
     @commentable = SessionReport.find_by_id(params[:session_report_id]) if params[:session_report_id]
   end
 
-end
+

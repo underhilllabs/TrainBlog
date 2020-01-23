@@ -9,3 +9,9 @@
     -else
       %small= "- Submitted #{time_ago_in_words(comment.created_at)} ago"
 
+    - if current_user && current_user.admin?
+      %p 
+        = link_to 'Delete Comment', comment_path(comment), class: "delete-link", remote: true, method: :delete, data: { target: "delete.comment", action: "ajax:beforeSend->delete#click" }
+
+    %hr
+

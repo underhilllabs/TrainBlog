@@ -13,6 +13,7 @@ class SessionReportsController < ApplicationController
   # GET /session_reports/1.json
   def show
     @final_stat = @session_report.final_stats
+    @final_standing = @session_report.final_standings
     @player_manifest = @session_report.player_manifests
   end
 
@@ -28,8 +29,8 @@ class SessionReportsController < ApplicationController
   # POST /session_reports
   # POST /session_reports.json
   def create
-    @session_report = SessionReport.create! session_report_params
-    #@sesion_report.published = true
+    @session_report = SessionReport.create session_report_params
+    @sesion_report.published = true
     respond_to do |format|
       if @session_report.save
         format.html { redirect_to @session_report, notice: 'Session report was successfully created.' }

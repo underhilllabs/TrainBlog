@@ -11,21 +11,25 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @session_reports = SessionReport.where(game: @game)  
+    @games = Game.all
+    @session_reports = SessionReport.where(game: @game).order(game_date: :DESC)
   end
 
   # GET /games/new
   def new
+    @games = Game.all
     @game = Game.new
   end
 
   # GET /games/1/edit
   def edit
+    @games = Game.all
   end
 
   # POST /games
   # POST /games.json
   def create
+    @games = Game.all
     @game = Game.new(game_params)
 
     respond_to do |format|

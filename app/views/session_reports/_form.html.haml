@@ -14,9 +14,12 @@
     //= f.text_field :game, class: "form-control"
     //= f.select :game_id, Game.all
     = f.select("game_id", Game.all.collect {|g| [ g.title, g.id ] }, { include_blank: true })
+    /.field.form-group
+    //  = f.label :game_date
+    //  = f.text_field :game_date, class: "form-control", id: "calendarField", data:{ provide:'datepicker' }, autocomplete: "off"
   .field.form-group
-    = f.label :game_date
-    = f.text_field :game_date, class: "form-control", id: "calendarField", data:{ provide:'datepicker', autocomplete:"new-date-time" }, autocomplete: "off"
+    = f.label :session_date
+    = f.text_field :session_date, class: "form-control", id: "calendarField", data:{ provide:'datepicker', 'date-format' => 'yyyy-mm-dd', 'date-autoclose' => 'true' }, autocomplete: "off", value: @session_report.session_date
   .field.form-group
     = f.label :player_manifest
     = f.text_area :player_manifest, class: "form-control", rows: 5

@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @games = Game.all
-    @session_reports = SessionReport.where(game: @game).order(game_date: :DESC)
+    @session_reports = SessionReport.where(game: @game, published: true).order(game_date: :DESC)
   end
 
   # GET /games/new

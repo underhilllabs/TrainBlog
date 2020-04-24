@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+//require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 //require("app")
@@ -19,18 +19,36 @@ require("channels")
 
 require("trix")
 require("@rails/actiontext")
-require("jquery") // Don't really need to require this...
+//require("jquery") // Don't really need to require this...
 require("jquery-ui")
+require("magnific-popup") 
+//import Rails from '@rails/ujs';
+//import 'bootstrap';
+//Rails.start();
 window.jQuery = $;
 window.$ = $;
 $(function(){
     // Plain jquery
     $('#fadeMe').fadeOut(5000);
 
+    console.log("page loaded");
     // jquery-ui
     //const availableCities = ['Baltimore', 'New York'];
     //$('#cityField').autocomplete( { source: availableCities } );
     $('#calendarField').datepicker( { dateFormat: 'yy-mm-dd' } );
+    // initialize magnific popup
+    $('.image-link').magnificPopup({type:'image'});
     window.jQuery = $;
     window.$ = $;
 })
+//window.$.ready(function() {
+//  $('#calendarField').datepicker( { dateFormat: 'yy-mm-dd' } );
+//  $('.image-link').magnificPopup({type:'image'});
+//});
+
+//import { Application } from "stimulus"
+//import { definitionsFromContext } from "stimulus/webpack-helpers"
+
+//const application = Application.start()
+//const context = require.context("../controllers", true, /\.js$/)
+//application.load(definitionsFromContext(context))

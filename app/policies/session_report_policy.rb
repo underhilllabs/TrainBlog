@@ -12,6 +12,6 @@ class SessionReportPolicy < ApplicationPolicy
     true
   end
   def update?
-    create?
+    create? || user&.admin?
   end
 end

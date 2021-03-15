@@ -17,5 +17,9 @@
     %p= link_to "Post Session Report", new_session_report_path()
     %p= link_to "Post Review", new_post_path()
 
+  %hr
 
+  %h4 Latest Comments
+  - Comment.order(created_at: :DESC).first(5).each do |comment|
+    %p= link_to truncate(comment.body, :length => 255), comment.commentable
 

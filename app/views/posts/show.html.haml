@@ -8,13 +8,12 @@
   %p
     %h2= @post.title
 
-  %p
-    %small= "Posted by #{@post.user.player_profile.name}"
-    %p.avatar
-      = image_tag @post.user.player_profile.avatar
       
   .content= @post.content
   
+  %p
+    %small= "Posted by #{@post.user.player_profile.name}"
+    %p.avatar
+      = image_tag @post.user.player_profile.avatar.variant(resize_to_limit: [80,80])
+
   = link_to 'Edit', edit_post_path(@post) if user_signed_in?
-  \|
-  = link_to 'Back', posts_path

@@ -69,8 +69,10 @@
 // Main ------------------->
 // contains main-content and sidebar
 .main-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
   max-width: 1200px;
-  margin: auto;
   display: flex;
   flex-grow: 3;
   flex-flow: row wrap;

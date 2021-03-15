@@ -2,8 +2,6 @@
   %td
     = link_to session_report.title, session_report_path(session_report)
   %td
-    = link_to session_report.creator.username, "/player/#{session_report.creator.id}"
-  %td
     = session_report.game
   %td
     = nice_date_form(session_report.game_date)

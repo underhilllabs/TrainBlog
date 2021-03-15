@@ -9,6 +9,11 @@
   %p
     %b Game:
     = link_to @session_report.game, @session_report.game
+ 
+  - if @session_report.game_link
+    %p
+      %b View online:
+      = link_to "View game", @session_report.game_link, class: "btn btn-secondary"
 
   %p
     %b Game Date:

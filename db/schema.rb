@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_155253) do
+ActiveRecord::Schema.define(version: 2021_03_13_224609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 2020_01_13_155253) do
     t.bigint "game_id"
     t.boolean "published"
     t.text "final_standing"
+    t.date "session_date"
+    t.string "game_link"
     t.index ["game_id"], name: "index_session_reports_on_game_id"
   end
 

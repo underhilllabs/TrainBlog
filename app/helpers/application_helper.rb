@@ -3,7 +3,7 @@ module ApplicationHelper\
     if the_date.present?
       the_date.strftime('%b %e, %Y')
     else
-      "No date"
+      'No date'
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper\
   def nice_date_form(the_date)
     if the_date.present?

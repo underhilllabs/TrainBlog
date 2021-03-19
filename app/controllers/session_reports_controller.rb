@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionReportsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_session_report, only: %i[show edit update destroy]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PostsHelper
   def markdown
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,

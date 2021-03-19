@@ -6,7 +6,6 @@
       %tr
         %th Title
         %th Game
-        %th creator
         %th
 
     %tbody
@@ -14,7 +13,6 @@
         %tr
           %td= link_to session_report.title, session_report_path(session_report)
           %td= session_report.game
-          %td= session_report.creator.player_profile.name
           %td= link_to 'Show', session_report_path(session_report)
 
   %br

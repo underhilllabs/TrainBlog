@@ -1,19 +1,17 @@
 class PlayerProfilesController < ApplicationController
-  before_action :set_player_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_player_profile, only: %i[show edit update destroy]
 
   def index
     @player_profiles = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @player_profile = PlayerProfile.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @player_profile = PlayerProfile.new(player_profile_params)
@@ -41,18 +39,18 @@ class PlayerProfilesController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player_profile
-      @player_profile = PlayerProfile.find(params[:id])
-      authorize @player_profile
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def player_profile_params
-      params.require(:player_profile).permit(:name, :user_id, :geekname, :about_me, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_player_profile
+    @player_profile = PlayerProfile.find(params[:id])
+    authorize @player_profile
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def player_profile_params
+    params.require(:player_profile).permit(:name, :user_id, :geekname, :about_me, :avatar)
+  end
 end

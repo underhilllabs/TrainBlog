@@ -1,11 +1,11 @@
 class SessionReportsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_session_report, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_session_report, only: %i[show edit update destroy]
 
   # GET /session_reports
   # GET /session_reports.json
   def index
-    #@session_reports = SessionReport.published.order(game_date: :DESC)
+    # @session_reports = SessionReport.published.order(game_date: :DESC)
     @session_reports = SessionReport.published
   end
 
@@ -23,8 +23,7 @@ class SessionReportsController < ApplicationController
   end
 
   # GET /session_reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /session_reports
   # POST /session_reports.json
@@ -68,13 +67,14 @@ class SessionReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_session_report
-      @session_report = SessionReport.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def session_report_params
-      params.require(:session_report).permit(:title, :content, :game_date, :session_date, :game, :creator, :creator_id, :final_stat, :player_manifest, :game_id, :final_standing, :published, :game_link)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_session_report
+    @session_report = SessionReport.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def session_report_params
+    params.require(:session_report).permit(:title, :content, :game_date, :session_date, :game, :creator, :creator_id, :final_stat, :player_manifest, :game_id, :final_standing, :published, :game_link)
+  end
 end

@@ -8,10 +8,12 @@ class User < ApplicationRecord
   has_one :player_profile, dependent: :destroy
 
   def to_s
-    "#{username}"
+    username.to_s
   end
+
   private
+
   def initialize_player_profile
-    self.player_profile = PlayerProfile.create(user_id: self.id)
+    self.player_profile = PlayerProfile.create(user_id: id)
   end
 end

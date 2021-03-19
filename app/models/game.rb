@@ -4,6 +4,6 @@ class Game < ApplicationRecord
   has_many :session_reports
   has_one_attached :banner
   def to_s
-    "#{title}"
+    title.to_s
   end
 end

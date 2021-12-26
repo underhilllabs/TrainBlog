@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @images = Image.all
@@ -17,11 +17,9 @@ class ImagesController < ApplicationController
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -32,18 +30,19 @@ class ImagesController < ApplicationController
         format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
+    end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-    def set_image
-      @image = Image.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.require(:image).permit(:image_file, :name)
-    end
+  def set_image
+    @image = Image.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def image_params
+    params.require(:image).permit(:image_file, :name)
+  end
 end

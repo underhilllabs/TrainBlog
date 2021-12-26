@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery
 
-  rescue_from Pundit::NotAuthorizedError
+  rescue_from Pundit::NotAuthorizedError do
     redirect_to new_user_session_url, alert: 'You must create an account to do this.'
   end
 end

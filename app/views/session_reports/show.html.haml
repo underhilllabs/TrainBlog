@@ -3,13 +3,12 @@
 
   %h2= @session_report.title
 
-  %p.meta 
-    = link_to 'Edit', edit_session_report_path(@session_report), :class => "edit" if user_signed_in?
+  %p.meta= link_to 'Edit', edit_session_report_path(@session_report), :class => "edit" if user_signed_in?
 
   %p
     %b Game:
     = link_to @session_report.game, @session_report.game
- 
+
   - if @session_report.game_link
     %p
       %b View online:
@@ -19,26 +18,25 @@
     %b Game Date:
     = nice_date_form @session_report.game_date
 
-  %p 
+  %p
     = render 'player_manifest'
 
   -if @session_report.body.present?
     markdown(@session_report.body)
-  -else 
+  -else
     %p
       = @session_report.content
 
-  %p 
+  %p
     = render 'final_stat'
 
-  %p 
+  %p
     = render 'final_standings'
-
 
   %p
     %hr
   .delete-controller{data: { controller: "delete"}}
-    %p.meta 
+    %p.meta
       = link_to 'Edit Session Report', edit_session_report_path(@session_report), class: "edit" if user_signed_in?
       = link_to 'Delete Session Report', session_report_path(@session_report), class: "delete-link", method: :delete, data: { target: "delete.link", action: "ajax:beforeSend->delete#click" } if user_signed_in?
       .posted_by
@@ -46,18 +44,18 @@
     %p.avatar
       %span
         - if @session_report.creator.player_profile.avatar.attached?
-          = image_tag @session_report.creator.player_profile.avatar.variant(resize_to_limit: [100, 100]) 
+          = image_tag @session_report.creator.player_profile.avatar.variant(resize_to_limit: [100, 100])
       %span
-        = "posted by #{@session_report.creator.try(:username)}" 
+        = "posted by #{@session_report.creator.try(:username)}"
 
   %br
-  
+
   = render 'comments/add_comment'
-  
+
   #comments.comments
     %h3 Comments
 
     %ul
       = render(partial: 'comments/comment', collection: @session_report.comments)
-  
+
 

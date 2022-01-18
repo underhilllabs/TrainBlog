@@ -48,14 +48,14 @@
       %span
         = "posted by #{@session_report.creator.try(:username)}"
 
-  %br
-
-  = render 'comments/add_comment'
-
-  #comments.comments
-    %h3 Comments
-
-    %ul
-      = render(partial: 'comments/comment', collection: @session_report.comments)
-
+//  %br
+//
+//  = render 'comments/add_comment'
+//
+//  #comments.comments
+//    %h3 Comments
+//
+//    %ul
+//      = render(partial: 'comments/comment', collection: @session_report.comments)
+//
 

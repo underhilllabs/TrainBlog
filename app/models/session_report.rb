@@ -16,6 +16,7 @@ class SessionReport < ApplicationRecord
     else
       []
     end
+    # final_standing&.split('\n') || []
   end
 
   def final_stats
@@ -24,6 +25,7 @@ class SessionReport < ApplicationRecord
     else
       []
     end
+    # final_stat&.split('\n') || []
   end
 
   def player_manifests
@@ -32,5 +34,6 @@ class SessionReport < ApplicationRecord
     else
       []
     end
+    # player_manifest&.split('\n') || []
   end
 end

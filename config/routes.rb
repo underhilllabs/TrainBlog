@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   resources :games
   resources :posts
   resources :player_profiles
-  resources :session_reports do
-    resources :comments
-  end
-  resources :comments do
-    resources :comments
-  end
+  resources :session_reports
+  # resources :session_reports do
+  #   resources :comments
+  # end
+  # resources :comments do
+  #   resources :comments
+  # end
   devise_for :users
 
   get 'player/:id' => 'players#show'
